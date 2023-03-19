@@ -14,18 +14,19 @@ install:
   - python -m pip install --upgrade pip
   - pip install --upgrade pip
   - export TZ='Asia/Shanghai'
-  - git config --global user.name 用户名
-  - git config --global user.email 邮箱
-  - pip install #依赖包
+  - git config --global user.name xyy55
+  - git config --global user.email 1037730272@qq.com
+  - pip install openpyxl
+  - pip install pandas
   - pip install pyinstaller
 script:
-  - pyinstaller -F 1.py
+  - pyinstaller -F -i atm.ico 1.py
   - cd dist
   - git init
   - git add -A
   - git commit -m "CJH python exe Auto Builder"
   #推送至指定仓库，建议使用国内仓库，下载速度快。下方 TOKEN 以环境变量记录
-  - git push -f "https://${TOKEN_USER}:${TOKEN}@项目地址.git" master:master
+  - git push -f "https://github.com/xyy55/python-travis-pyinstaller.git" master:master
 branches:
   only:
     - master
